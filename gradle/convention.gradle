@@ -49,35 +49,35 @@ subprojects { project ->
 
             afterEvaluate {
                 if (branch.matches(BRANCH_NAMES_PATTERN)){
-                    
+                    if (!project.isSnapshot) {
+
+                        publish.finalizedBy getTasksByName("bintrayUpload", true)
+                        publish.finalizedBy getTasksByName("artifactoryPublish", true)
+                        publish.finalizedBy rootProject.getTasksByName("publishGhPages", true)
+                        publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
+                        if (branch.matches(BRANCH_NAMES_PATTERN)) {
+
+                        }
+
+                    } else if (!project.isPullRequest) {
+
+                        publish.finalizedBy getTasksByName("artifactoryPublish", true)
+                        publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
+                        if (branch.matches(BRANCH_NAMES_PATTERN)) {
+
+                        }
+
+                    } else if (project.isPullRequest) {
+                        build.finalizedBy rootProject.getTasksByName("sonarqube", true)
+                        if (branch.matches(BRANCH_NAMES_PATTERN)) {
+
+                        }
+
+                    }
 
 
                 }
-                if (!project.isSnapshot) {
 
-                    publish.finalizedBy getTasksByName("bintrayUpload", true)
-                    publish.finalizedBy getTasksByName("artifactoryPublish", true)
-                    publish.finalizedBy rootProject.getTasksByName("publishGhPages", true)
-                    publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
-                    if (branch.matches(BRANCH_NAMES_PATTERN)) {
-
-                    }
-
-                } else if (!project.isPullRequest) {
-
-                    publish.finalizedBy getTasksByName("artifactoryPublish", true)
-                    publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
-                    if (branch.matches(BRANCH_NAMES_PATTERN)) {
-
-                    }
-                    
-                } else if (project.isPullRequest) {
-                    build.finalizedBy rootProject.getTasksByName("sonarqube", true)
-                    if (branch.matches(BRANCH_NAMES_PATTERN)) {
-
-                    }
-
-                }
 
             }
         }
