@@ -1,4 +1,4 @@
-# Gradle Jave Template
+# Gradle Jave Template forked
 
 [![GitHub version](https://img.shields.io/github/tag/ReneNeubert/gradle-java-template.svg)](https://github.com/ReneNeubert/gradle-java-template)
 [![Travis](https://img.shields.io/travis/ReneNeubert/gradle-java-template.svg)](https://travis-ci.org/ReneNeubert/gradle-java-template)
