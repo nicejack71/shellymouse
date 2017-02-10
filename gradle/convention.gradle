@@ -59,7 +59,7 @@ subprojects { project ->
 
                         }
 
-                    } else if (!project.isPullRequest) {
+                    } else if (!project.isPullRequest && !project.hasTravisSecEnv) {
                         println("------------------ Match 2 --------------------------")
                         publish.finalizedBy getTasksByName("artifactoryPublish", true)
                         publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
