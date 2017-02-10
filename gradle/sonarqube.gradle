@@ -32,6 +32,7 @@ sonarqube.properties {
     property "sonar.jacoco.reportMissing.force.zero", Boolean.TRUE
 
     if (project.isPullRequest && project.hasTravisSecEnv) {
+
         property "sonar.analysis.mode", "issues"
         property "sonar.github.pullRequest", System.getenv('TRAVIS_PULL_REQUEST')
         property "sonar.github.repository", System.getenv('TRAVIS_REPO_SLUG')
@@ -43,7 +44,7 @@ sonarqube.properties {
 subprojects {project ->
 
     sonarqube.skipProject = !(project in rootProject.sonarQubeModules)
-    //noinspection GroovyAssignabilityCheck
+   
     sonarqube.properties {
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
         property "sonar.sources", "src/main/java"
