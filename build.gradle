@@ -54,7 +54,7 @@ ext {
 
     sonarQubeModules = publishedModules
     generateManifest = false
-    publishArtifacts = false
+    publishArtifacts = false //set by lazybones
     checkCodeQuality = true
     ignoreFailures = false
 }

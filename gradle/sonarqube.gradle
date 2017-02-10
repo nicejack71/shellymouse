@@ -34,8 +34,8 @@ sonarqube.properties {
     if (project.isPullRequest && project.hasTravisSecEnv) {
         property "sonar.analysis.mode", "issues"
         property "sonar.github.pullRequest", System.getenv('TRAVIS_PULL_REQUEST')
-        property "github.repository", System.getenv('TRAVIS_REPO_SLUG')
-        property "github.oauth", System.getenv('SONAR_GITHUB_OAUTH')
+        property "sonar.github.repository", System.getenv('TRAVIS_REPO_SLUG')
+        property "sonar.github.oauth", System.getenv('SONAR_GITHUB_OAUTH')
     }
 
 }
