@@ -31,7 +31,6 @@ buildscript {
 
 description = "The Shelly Mouse Project."
 
-
 apply plugin: "base"
 apply plugin: "de.gliderpilot.semantic-release"
 apply plugin: "com.github.ben-manes.versions"
