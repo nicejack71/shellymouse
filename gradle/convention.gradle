@@ -63,9 +63,7 @@ subprojects { project ->
                         println("------------------ Match 2 --------------------------")
                         publish.finalizedBy getTasksByName("artifactoryPublish", true)
                         publish.finalizedBy rootProject.getTasksByName("sonarqube", true)
-                        if (branch.matches(BRANCH_NAMES_PATTERN)) {
-
-                        }
+                       
 
                     } else if (project.isPullRequest && project.hasTravisSecEnv) {
                         println("------------------ Match 3 --------------------------")
