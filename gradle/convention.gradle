@@ -46,30 +46,7 @@ subprojects { project ->
             String branch = versioning.info.branch
 
             final BRANCH_NAMES_PATTERN = /^(?:release[-\/])?[0-9]+(\.[0-9]+)?\.x$|^(?:feature[-\/]|hotfix[-\/]|develop|master)?$/
-           /* afterEvaluate {
-                if (!project.isSnapshot) {
-
-                    publish.dependsOn getTasksByName("bintrayUpload", true)
-                    publish.dependsOn getTasksByName("artifactoryPublish", true)
-                    publish.dependsOn rootProject.getTasksByName("publishGhPages", true)
-                    if (branch.matches(BRANCH_NAMES_PATTERN)) {
-
-                        bintrayUpload.dependsOn rootProject.getTasksByName("sonarqube", true)
-
-                    }
-
-                } else if ((System.getenv('TRAVIS_PULL_REQUEST') ?: "false") == "false") {
-
-                    publish.dependsOn getTasksByName("artifactoryPublish", true)
-
-                    if (branch.matches(BRANCH_NAMES_PATTERN)) {
-                        artifactoryPublish.dependsOn rootProject.getTasksByName("sonarqube", true)
-                    }
-
-
-                }
-
-            }*/
+        
             afterEvaluate {
                 if (branch.matches(BRANCH_NAMES_PATTERN)){
                     if (!project.isSnapshot) {
