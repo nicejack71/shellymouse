@@ -44,7 +44,7 @@ sonarqube.properties {
 subprojects {project ->
 
     sonarqube.skipProject = !(project in rootProject.sonarQubeModules)
-   
+   //simple comment
     sonarqube.properties {
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
         property "sonar.sources", "src/main/java"
