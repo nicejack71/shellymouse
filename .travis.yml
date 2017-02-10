@@ -23,10 +23,8 @@ before_install:
 - git checkout -qf $TRAVIS_BRANCH
 install:
 - echo "skip default gradlew assemble"
-script:
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./gradlew release -Dorg.ajoberstar.grgit.auth.username=${GH_TOKEN}
-  -Dorg.ajoberstar.grgit.auth.password --info --stacktrace || ./gradlew build --info
-  --stacktrace'
+script: ./buildscripts/travis_build.sh
+
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 env:
