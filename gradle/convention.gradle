@@ -71,7 +71,7 @@ subprojects { project ->
                         println("------------------ Match 3 --------------------------")
                         build.finalizedBy rootProject.getTasksByName("sonarqube", true)
                         if (branch.matches(BRANCH_NAMES_PATTERN)) {
-                        //for trigger PR
+                        
                         }
 
                     }
