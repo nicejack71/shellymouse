@@ -46,7 +46,7 @@ subprojects { project ->
             String branch = versioning.info.branch
 
             final BRANCH_NAMES_PATTERN = /^(?:release[-\/])?[0-9]+(\.[0-9]+)?\.x$|^(?:feature[-\/]|hotfix[-\/]|develop|master)?$/
-            afterEvaluate {
+           /* afterEvaluate {
                 if (!project.isSnapshot) {
 
                     publish.dependsOn getTasksByName("bintrayUpload", true)
@@ -69,8 +69,8 @@ subprojects { project ->
 
                 }
 
-            }
-            /*afterEvaluate {
+            }*/
+            afterEvaluate {
                 if (branch.matches(BRANCH_NAMES_PATTERN)){
                     if (!project.isSnapshot) {
                         println("------------------ Match 1 --------------------------")
@@ -103,7 +103,7 @@ subprojects { project ->
                 }
 
 
-            }*/
+            }
         }
     }
 }
